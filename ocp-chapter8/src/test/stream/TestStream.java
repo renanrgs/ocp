@@ -8,8 +8,9 @@ import java.io.IOException;
 public class TestStream {
 	public static void main(String[] args) throws IOException {
 		FileReader fileReader = new FileReader(new File("files/test.txt"));
-		BufferedReader b = new BufferedReader(fileReader);
-		
-		System.out.println(b.readLine());
+
+		try (BufferedReader b = new BufferedReader(fileReader)) {
+			System.out.println(b.readLine());
+		}
 	}
 }
