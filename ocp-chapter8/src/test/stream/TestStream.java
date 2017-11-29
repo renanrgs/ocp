@@ -1,31 +1,39 @@
 package test.stream;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.stream.Stream;
 
 public class TestStream {
 	public static void main(String[] args) throws IOException {
-		FileReader fileReader = new FileReader(new File("files/test.txt"));
-
-		try (BufferedReader b = new BufferedReader(fileReader)) {
-			System.out.println(b.readLine());
-		}
-		
-		wrapping();
+		parse();
+		parseBuffered();
 	}
 
-	private static void wrapping() {
-		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("files/test.txt"))) {
-			System.out.println(ois.readUTF());
+	private static void parse() {
+		try (FileInputStream fis = new FileInputStream("/home/renan/Desktop/maven");
+				FileOutputStream fos = new FileOutputStream("files/maven_renan")) {
+			byte[] buffer = new byte[8192];
+			int byteRead;
+			while ((byteRead = fis.read(buffer)) != -1) {
+				System.out.println(byteRead);
+				fos.write(buffer);
+			}
 		} catch (IOException e) {
-			Stream.of(e.getSuppressed()).forEach(System.out::println);
-			System.out.println(e.getMessage());
+
 		}
 	}
 
+	private static void parseBuffered() {
+		try (BufferedReader b = new BufferedReader(new FileReader("files/maven_renan"))) {
+			b.lines().forEach(TestStream::print);
+		} catch (IOException e) {
+		}
+	}
+
+	private static void print(String line) {
+		System.out.println(line.trim());
+	}
 }
