@@ -11,13 +11,15 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Base64;
 
 public class TestFileInputStream {
 	public static void main(String[] args) {
 		// copy(new File("files/test.txt"), new File("files/destination.txt"));
 		// bufferedCopy(new File("files/test.txt"), new File("files/destination.txt"));
-		parseBase64();
+		//parseBase64();
+		testingMark();
 	}
 
 	private static void copy(File source, File destination) {
@@ -72,6 +74,16 @@ public class TestFileInputStream {
 
 		}
 
+	}
+	
+	private static void testingMark() {
+		try(InputStream is = new FileInputStream("/home/renan/Desktop/maven")){
+			System.out.println(is.markSupported());
+			is.mark(10);
+			is.reset();
+		}catch(IOException e) {
+			System.out.println("It does not accept mark operation");
+		};
 	}
 
 }
