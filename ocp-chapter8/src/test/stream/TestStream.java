@@ -15,7 +15,7 @@ public class TestStream {
 	private static void parse() {
 		try (FileInputStream fis = new FileInputStream("/home/renan/Desktop/maven");
 				FileOutputStream fos = new FileOutputStream("files/maven_renan")) {
-			byte[] buffer = new byte[8192];
+			byte[] buffer = new byte[4096];
 			int byteRead;
 			while ((byteRead = fis.read(buffer)) != -1) {
 				System.out.println(byteRead);
@@ -27,7 +27,7 @@ public class TestStream {
 	}
 
 	private static void parseBuffered() {
-		try (BufferedReader b = new BufferedReader(new FileReader("files/maven_renan"))) {
+		try (BufferedReader b = new BufferedReader(new FileReader("files/maven_renan"), 4096)) {
 			b.lines().forEach(TestStream::print);
 		} catch (IOException e) {
 		}
