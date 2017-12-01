@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_remotesystemstempfiles" default="compile.module.remotesystemstempfiles">
+  <dirname property="module.remotesystemstempfiles.basedir" file="${ant.file.module_remotesystemstempfiles}"/>
+  
+  <property name="module.jdk.home.remotesystemstempfiles" value=""/>
+  <property name="module.jdk.bin.remotesystemstempfiles" value=""/>
+  <property name="module.jdk.classpath.remotesystemstempfiles" value=""/>
+  
+  <property name="compiler.args.remotesystemstempfiles" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="remotesystemstempfiles.output.dir" value="${module.remotesystemstempfiles.basedir}/bin"/>
+  <property name="remotesystemstempfiles.testoutput.dir" value="${module.remotesystemstempfiles.basedir}/bin"/>
+  
+  <path id="remotesystemstempfiles.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="remotesystemstempfiles.module.production.classpath"/>
+  
+  <path id="remotesystemstempfiles.runtime.production.module.classpath">
+    <pathelement location="${remotesystemstempfiles.output.dir}"/>
+  </path>
+  
+  <path id="remotesystemstempfiles.module.classpath">
+    <pathelement location="${remotesystemstempfiles.output.dir}"/>
+  </path>
+  
+  <path id="remotesystemstempfiles.runtime.module.classpath">
+    <pathelement location="${remotesystemstempfiles.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.remotesystemstempfiles">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.remotesystemstempfiles">
+    <patternset refid="excluded.from.module.remotesystemstempfiles"/>
+  </patternset>
+  
+  
+  <target name="compile.module.remotesystemstempfiles" depends="compile.module.remotesystemstempfiles.production,compile.module.remotesystemstempfiles.tests" description="Compile module RemoteSystemsTempFiles"/>
+  
+  <target name="compile.module.remotesystemstempfiles.production" depends="register.custom.compilers" description="Compile module RemoteSystemsTempFiles; production classes"/>
+  
+  <target name="compile.module.remotesystemstempfiles.tests" depends="register.custom.compilers,compile.module.remotesystemstempfiles.production" description="compile module RemoteSystemsTempFiles; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.remotesystemstempfiles" description="cleanup module">
+    <delete dir="${remotesystemstempfiles.output.dir}"/>
+    <delete dir="${remotesystemstempfiles.testoutput.dir}"/>
+  </target>
+</project>
