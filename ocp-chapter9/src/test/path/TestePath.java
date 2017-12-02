@@ -1,19 +1,19 @@
 package test.path;
 
 import java.io.IOException;
-import java.nio.file.FileSystem;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class TestePath {
-	public static void main(String[] args) throws IOException {
-		Path path = Paths.get("files/maven_renan");
-		Path pathSeparator = Paths.get("files", "maven_renan");
-		FileSystem fileSystem = FileSystems.getDefault();
-		Path pathFileSystem = fileSystem.getPath("files/renan_maven");
+	public static void main(String[] args) throws IOException, URISyntaxException {
+		//Ways to create a Path
 		
-		System.out.println(pathSeparator.toAbsolutePath());
-
+		//Most commom
+		Path path = Paths.get(new URI("file::///home/renan/Desktop/maven"));
+		Path pathByGet = Paths.get("files/maven_renan");
+		Path pathByFileSystem = FileSystems.getDefault().getPath("files", "maven_renan");
 	}
 }
