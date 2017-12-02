@@ -11,6 +11,38 @@ public class TestPathMethods {
 		getFileName();
 		getParent();
 		getRoot();
+		isAbsolute();
+		toAbsolute();
+		subpath();
+		relativize();
+		resolve();
+		normalize();
+	}
+
+	private static void normalize() {
+		
+	}
+
+	private static void resolve() {
+		Path path = Paths.get("home/renan/Desktop/");
+		System.out.println(path.resolve(Paths.get("resolve/")));
+	}
+
+	private static void relativize() {
+		Path path1 = Paths.get("home/renan/Desktop/maven");
+		Path path2 = Paths.get("Desktop/renan");
+		System.out.println(path1.relativize(path2));
+		System.out.println(path2.relativize(path1));
+	}
+
+	private static void subpath() {
+		Path path = Paths.get("home/renan/Desktop/maven");
+		System.out.println(path.subpath(2, 4));
+	}
+
+	private static void toAbsolute() {
+		Path path = FileSystems.getDefault().getPath("files/maven_renan");
+		System.out.println(path.toAbsolutePath());
 	}
 
 	private static void getRoot() {
@@ -25,15 +57,20 @@ public class TestPathMethods {
 			System.out.println(path.getName(i));
 		}
 	}
-	
+
 	private static void getFileName() {
 		Path path = FileSystems.getDefault().getPath("files");
 		System.out.println(path.getFileName());
 	}
-	
+
 	private static void getParent() throws URISyntaxException {
 		Path path = Paths.get("home/renan/Desktop/maven");
 		System.out.println(path.getParent());
 	}
-	
+
+	private static void isAbsolute() {
+		Path path = Paths.get("files/maven_renan");
+		System.out.println(path.isAbsolute());
+	}
+
 }
