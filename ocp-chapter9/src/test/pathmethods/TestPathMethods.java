@@ -1,26 +1,35 @@
 package test.pathmethods;
 
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class TestPathMethods {
-	public static void main(String[] args) throws URISyntaxException {
-		getNameCounAndGetNamet();
-		getFileName();
-		getParent();
-		getRoot();
-		isAbsolute();
-		toAbsolute();
-		subpath();
-		relativize();
-		resolve();
-		normalize();
+	public static void main(String[] args) throws URISyntaxException, IOException {
+//		getNameCounAndGetNamet();
+//		getFileName();
+//		getParent();
+//		getRoot();
+//		isAbsolute();
+//		toAbsolute();
+//		subpath();
+//		relativize();
+//		resolve();
+//		normalize();
+		toRealPath();
+	}
+
+	private static void toRealPath() throws IOException {
+		Path path = Paths.get("files/maven_renan");
+		System.out.println(path.toRealPath());
 	}
 
 	private static void normalize() {
-		
+		Path path1 = Paths.get("/home/renan/Desktop");
+		Path path2 = Paths.get("/home/renan/Downloads/Boletos.pdf");
+		System.out.println(path1.resolve(path2).normalize());
 	}
 
 	private static void resolve() {
@@ -29,8 +38,8 @@ public class TestPathMethods {
 	}
 
 	private static void relativize() {
-		Path path1 = Paths.get("home/renan/Desktop/maven");
-		Path path2 = Paths.get("Desktop/renan");
+		Path path1 = Paths.get("/home/renan/Desktop/maven");
+		Path path2 = Paths.get("/Desktop/renan");
 		System.out.println(path1.relativize(path2));
 		System.out.println(path2.relativize(path1));
 	}
