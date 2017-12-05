@@ -8,9 +8,9 @@ import java.io.InputStreamReader;
 public class TestConsole {
 
 	public static void main(String[] args) throws IOException {
-		// oldWay();
-		//newWay();
-		
+		oldWay();
+		newWay();
+
 		Console console = System.console();
 		if (console != null) {
 			String userInput = console.readLine();
