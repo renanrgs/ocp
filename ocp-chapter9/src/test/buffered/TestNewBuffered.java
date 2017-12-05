@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 
 public class TestNewBuffered {
 	public static void main(String[] args) throws IOException {
-		//newBufferedReader();
-		//newBufferedWriter();
+		newBufferedReader();
+		newBufferedWriter();
 		readAllLines();
 	}
 

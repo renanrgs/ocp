@@ -8,12 +8,12 @@ import java.nio.file.Paths;
 
 public class TestFiles {
 	public static void main(String[] args) throws IOException {
-		// exists();
-		// isSameFile();
-		// createDirectory();
-		// createDirectories();
-		// copy();
-//		move();
+		exists();
+		isSameFile();
+		createDirectory();
+		createDirectories();
+		copy();
+		move();
 		delete();
 	}
 

@@ -8,16 +8,16 @@ import java.nio.file.Paths;
 
 public class TestPathMethods {
 	public static void main(String[] args) throws URISyntaxException, IOException {
-//		getNameCounAndGetNamet();
-//		getFileName();
-//		getParent();
-//		getRoot();
-//		isAbsolute();
-//		toAbsolute();
-//		subpath();
-//		relativize();
-//		resolve();
-//		normalize();
+		getNameCounAndGetNamet();
+		getFileName();
+		getParent();
+		getRoot();
+		isAbsolute();
+		toAbsolute();
+		subpath();
+		relativize();
+		resolve();
+		normalize();
 		toRealPath();
 	}
 
