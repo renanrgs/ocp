@@ -9,6 +9,11 @@ public class TestStream {
 		// walk();
 		// find();
 		list();
+		lines();
+	}
+
+	private static void lines() throws IOException {
+		Files.lines(Paths.get("/home/renan/Documents/challenges/wallethub/access.log")).forEach(System.out::println);
 	}
 
 	private static void list() throws IOException {
