@@ -22,7 +22,7 @@ public class TestStream {
 				fos.write(buffer);
 			}
 		} catch (IOException e) {
-
+			System.out.println(e.getMessage());
 		}
 	}
 
