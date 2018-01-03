@@ -14,7 +14,10 @@ public class TerminalOperations {
 //		System.out.println(stream.allMatch((number) -> number > 0));
 //		System.out.println(stream.reduce((number1, number2) -> number1 * number2).orElse(0));
 //		System.out.println(stream.reduce(0, (number1, number2) -> number1 * number2));
-		System.out.println(stream.reduce("Renan ", (number1, number2) -> number1 + number2, (number1, number2) -> number1.concat(number2)));
+//		System.out.println(stream.reduce("Renan ", (number1, number2) -> number1 + number2, (number1, number2) -> number1.concat(number2)));
+		Stream<String> s = Stream.of("w","o","l","f");
+		
+		System.out.println(s.collect(StringBuilder::new, StringBuilder::append, StringBuilder::append));
 	}
 	
 
@@ -33,4 +36,5 @@ public class TerminalOperations {
  * 8 - allMtach
  * 9 - forEach -> Iterate over the stream. It takes a Consumer as parameter
  * 10 - reduce -> It reduces the stream to one element. It has three versions. Tne first one take a BinaryOperator as a parameter, the second one takes an Identity and a BinaryOperator as parameter, the third one takes three parameters: an Identity value, an BiFunction and BinaryOperator
+ * 11 - Collect
  * */
