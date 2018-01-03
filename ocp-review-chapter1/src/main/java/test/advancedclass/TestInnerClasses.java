@@ -1,27 +1,22 @@
 package test.advancedclass;
 
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.stream.Stream;
+
 public class TestInnerClasses {
-
-	public void testMethod() {
-		class A {
-
-		}
-		A a = new A();
-	}
-
 	public static void main(String[] args) {
-		TestInnerClasses test = new TestInnerClasses();
-
+		Deque d = new ArrayDeque<>();
+		Queue q = new LinkedList<>();
+		q.add(null);
+		LocalDate date = LocalDate.now();
+		Stream.of(1,2,3,4,5).max((a, b) -> a.compareTo(b));
+		System.out.println(Period.between(LocalDate.now(), LocalDate.of(2015, Month.SEPTEMBER, 1)));
+		System.out.println(Integer.max(2, 5));
 	}
-}
-
-interface TesteInterface {
-	public interface Renan {
-	}
-
-	static final class A {
-		static Integer a = 0;
-	}
-
-	public void method();
 }
