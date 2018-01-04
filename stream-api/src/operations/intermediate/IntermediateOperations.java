@@ -15,6 +15,9 @@ public class IntermediateOperations {
 
 		// names.map(String::toUpperCase).forEach(System.out::println);
 
+		Stream<Integer> infiniteStream = Stream.iterate(1, (number) -> number * 2);
+		infiniteStream.limit(31).forEach(System.out::println);
+		
 		// FlatMap test
 		List<String> listNames = Arrays.asList("John", "Steve", "James");
 		List<String> listNames2 = Arrays.asList("Mathew", "Luke", "Paul", "John");
