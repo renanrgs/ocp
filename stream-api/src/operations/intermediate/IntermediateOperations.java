@@ -22,8 +22,20 @@ public class IntermediateOperations {
 		Stream<List<String>> listStream = Stream.of(listNames, listNames2);
 		// listStream.flatMap(List::stream).forEach(System.out::println);
 
-		names.sorted(String::compareTo).forEach(System.out::println);
+//		names.sorted(String::compareTo).forEach(System.out::println);
 //		names.sorted((name1, name2) -> name1.compareTo(name2)).forEach(System.out::println);
-
 	}
 }
+
+/*
+ * Intermediate operations
+ * 
+ * 1 - distinct -> Takes no parameters and returns unique elements
+ * 2 - filter -> Filter elements within a stream according to predicate expressions that is passed.
+ * 3 - skip -> It skips an amount of elements according to the parameter used. The parameter is a long.
+ * 4 - limit -> State a limit of elements that should be return from stream. It takes a long as parameter.
+ * 5 - map -> It transforms each element within a stream. It takes a Function as parameter.
+ * 6 - flatMap -> It brings the elements within a collection to the surface. It takes a Function as parameter that must return a stream.
+ * 7 - sorted -> It has two versions. The first one does not take any parameter and the second one takes a Comparator as parameter. It sorts elements within a stream
+ * 8 - peek -> It prints the track of the stream.   
+ */
