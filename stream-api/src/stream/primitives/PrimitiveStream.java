@@ -33,6 +33,7 @@ public class PrimitiveStream {
 		IntToDoubleFunction intToDoubleFunction = (intNumber) -> 2.0;
 		IntToLongFunction intToLongFunction = (intNumber) -> 1L;
 
+		
 		ToDoubleFunction<String> toDoubleFunction = (string) -> Double.valueOf(string);
 
 	}
