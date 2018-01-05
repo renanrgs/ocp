@@ -6,6 +6,8 @@ import java.util.stream.Stream;
 public class CreateParallelStream {
 	public static void main(String[] args) {
 		Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5, 6);
+		Integer n = stream.reduce(1, (number1, number2)-> number1 + number2 + 10, (number1, number2)->10);
+		System.out.println(n);
 		Stream<Integer> parallelStream = Stream.of(1,2,3,4,5,6).parallel();
 
 		Optional<Integer> number = parallelStream.findFirst();
